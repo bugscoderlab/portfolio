@@ -20,7 +20,7 @@ Live at: https://bugscoderlab.github.io/portfolio/
 | **Projects** (the "Selected projects" cards) | `data/projects.yaml` |
 | Skills | `data/skills.yaml` |
 | Education | `data/education.yaml` |
-| Screenshots for projects | drop files in `static/images/` |
+| Screenshots for projects | drop files in `assets/images/` |
 | Colours, spacing, fonts | `assets/css/style.css` |
 | The actual page structure | `layouts/index.html` |
 
@@ -34,7 +34,7 @@ refreshes automatically; commit and push and the live site updates.
 The projects are **already** driven by `data/projects.yaml` — the HTML just loops
 over that list. To add one:
 
-1. **Put the screenshot in `static/images/`**, e.g. `static/images/my-app.png`.
+1. **Put the screenshot in `assets/images/`**, e.g. `assets/images/my-app.png`.
 2. **Add an entry at the bottom of `data/projects.yaml`**:
 
    ```yaml
@@ -58,6 +58,9 @@ Notes:
 - Only `title` is required; delete any line you don't need.
 - Images are shown in a 16:10 crop (`object-fit: cover`), so screenshots look
   best if they're roughly widescreen. Use `png`, `jpg` or `webp`.
+- Screenshots in `assets/images/` are **resized and converted to WebP at build
+  time** (a 500 KB PNG thumbnail becomes ~20 KB), so you don't need to optimise
+  them yourself. A file in `static/images/` still works but is served untouched.
 - To remove a project, delete its whole block (starting at `- title:`).
 
 ### Several screenshots (a gallery)
@@ -226,7 +229,7 @@ Run workflow**, or `gh workflow run hugo.yml`.
 │   ├── skills.yaml
 │   └── education.yaml
 ├── layouts/                  # templates
-├── assets/                   # css + js (minified + fingerprinted by Hugo)
-├── static/                   # copied as-is: fonts/, images/, favicon.svg
+├── assets/                   # css + js + project screenshots (processed by Hugo)
+├── static/                   # copied as-is: fonts/, favicon.svg
 └── .github/workflows/hugo.yml
 ```

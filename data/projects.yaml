@@ -3,7 +3,7 @@
 # Only `title` is required. Everything else is optional; delete any line you don't need.
 #
 #   title   card heading (required)
-#   image   ONE screenshot filename. Put the file in  static/images/  and write
+#   image   ONE screenshot filename. Put the file in  assets/images/  and write
 #           just the filename here, e.g.  image: "my-app.png"
 #   images  SEVERAL screenshots (a gallery). The first is the thumbnail; clicking
 #           opens a lightbox with all of them. Takes precedence over `image`.

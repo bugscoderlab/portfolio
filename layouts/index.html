@@ -113,11 +113,28 @@
           {{ end }}
         </div>
         {{ with $imgs }}
-        {{ $urls := slice }}
-        {{ range . }}{{ $urls = $urls | append (printf "images/%s" . | relURL) }}{{ end }}
-        <button class="project__media-btn" type="button" data-gallery="{{ delimit $urls "," }}" aria-label="View {{ $p.title }} screenshots">
-          <img class="project__media" src="{{ index $urls 0 }}" alt="{{ $p.title }} — screenshot" loading="lazy" decoding="async">
-          {{ if gt (len $urls) 1 }}<span class="project__media-count mono" aria-hidden="true">+{{ sub (len $urls) 1 }}</span>{{ end }}
+        {{/* Images live in assets/images/ so Hugo can resize + convert them to WebP.
+             A file in static/images/ still works, and is served untouched. */}}
+        {{ $fulls := slice }}
+        {{ $thumbs := slice }}
+        {{ range . }}
+          {{ $res := resources.Get (printf "images/%s" .) }}
+          {{ if $res }}
+            {{ $full := $res }}
+            {{ if gt $res.Width 1600 }}{{ $full = $res.Resize "1600x webp q82" }}{{ else }}{{ $full = $res.Resize (printf "%dx webp q82" $res.Width) }}{{ end }}
+            {{ $th := $res }}
+            {{ if gt $res.Width 720 }}{{ $th = $res.Resize "720x webp q82" }}{{ else }}{{ $th = $res.Resize (printf "%dx webp q82" $res.Width) }}{{ end }}
+            {{ $fulls = $fulls | append $full.RelPermalink }}
+            {{ $thumbs = $thumbs | append $th.RelPermalink }}
+          {{ else }}
+            {{ $u := printf "images/%s" . | relURL }}
+            {{ $fulls = $fulls | append $u }}
+            {{ $thumbs = $thumbs | append $u }}
+          {{ end }}
+        {{ end }}
+        <button class="project__media-btn" type="button" data-gallery="{{ delimit $fulls "," }}" aria-label="View {{ $p.title }} screenshots">
+          <img class="project__media" src="{{ index $thumbs 0 }}" alt="{{ $p.title }} — screenshot" loading="lazy" decoding="async">
+          {{ if gt (len $fulls) 1 }}<span class="project__media-count mono" aria-hidden="true">+{{ sub (len $fulls) 1 }}</span>{{ end }}
         </button>
         {{ end }}
       </article>
