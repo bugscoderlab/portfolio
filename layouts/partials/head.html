@@ -11,12 +11,25 @@
 <meta property="og:url" content="{{ .Permalink }}">
 <meta name="twitter:card" content="summary">
 
-<meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0c0c0d" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfbfa">
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
 
-{{/* Set a flag so reveal animations only apply when JS can drive them. */}}
-<script>document.documentElement.classList.add('js');</script>
+{{/* Resolve the theme before first paint (no flash). JS can override it later;
+     with JS disabled the site simply renders in light mode. */}}
+<script>
+(function () {
+  var d = document.documentElement;
+  d.classList.add('js');
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
+  if (stored !== 'light' && stored !== 'dark') {
+    stored = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  d.setAttribute('data-theme', stored);
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', stored === 'dark' ? '#0c0c0d' : '#fbfbfa');
+})();
+</script>
 
 <link rel="preload" href="{{ "fonts/Geist-Variable.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ "fonts/GeistMono-Variable.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>

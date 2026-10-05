@@ -89,22 +89,28 @@
     <h2 class="section__title">Selected projects</h2>
     <div class="projects">
       {{ range hugo.Data.projects }}
+      {{ $p := . }}
       <article class="project">
-        <h3 class="project__title">
-          {{ if .link }}<a href="{{ .link }}" rel="noopener" target="_blank">{{ .title }} <span aria-hidden="true">↗</span></a>
-          {{ else }}{{ .title }}{{ end }}
-        </h3>
-        <p class="project__blurb">{{ .blurb }}</p>
-        {{ with .points }}
-        <ul class="project__points">
-          {{ range . }}<li>{{ . }}</li>{{ end }}
-        </ul>
+        {{ with $p.image }}
+        <img class="project__media" src="{{ printf "images/%s" . | relURL }}" alt="{{ $p.title }} — screenshot" loading="lazy" decoding="async">
         {{ end }}
-        {{ with .stack }}
-        <ul class="tags">
-          {{ range . }}<li class="tag mono">{{ . }}</li>{{ end }}
-        </ul>
-        {{ end }}
+        <div class="project__inner">
+          <h3 class="project__title">
+            {{ if $p.link }}<a href="{{ $p.link }}" rel="noopener" target="_blank">{{ $p.title }} <span aria-hidden="true">↗</span></a>
+            {{ else }}{{ $p.title }}{{ end }}
+          </h3>
+          {{ with $p.blurb }}<p class="project__blurb">{{ . }}</p>{{ end }}
+          {{ with $p.points }}
+          <ul class="project__points">
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+          {{ with $p.stack }}
+          <ul class="tags">
+            {{ range . }}<li class="tag mono">{{ . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+        </div>
       </article>
       {{ end }}
     </div>

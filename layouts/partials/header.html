@@ -4,11 +4,17 @@
       <span class="brand__mark" aria-hidden="true"></span>
       <span class="brand__text">{{ site.Params.name }}</span>
     </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="site-header__actions">
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch colour theme" aria-pressed="false">
+        <span class="theme-toggle__icon theme-toggle__icon--moon">{{ partial "icon.html" "moon" }}</span>
+        <span class="theme-toggle__icon theme-toggle__icon--sun">{{ partial "icon.html" "sun" }}</span>
+      </button>
+    </div>
   </div>
 </header>

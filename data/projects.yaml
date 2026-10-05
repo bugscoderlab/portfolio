@@ -1,4 +1,22 @@
+# Projects shown in the "Selected projects" section — order here is order on the page.
+#
+# Only `title` is required. Everything else is optional; delete any line you don't need.
+#
+#   title   card heading (required)
+#   image   a screenshot filename. Put the file in  static/images/  and write
+#           just the filename here, e.g.  image: "my-app.png"
+#   blurb   one short sentence
+#   points  bullet list
+#   stack   list of tech tags
+#   link    URL the title links to
+#
+# A card can be just an image + title. Example:
+#
+#   - title: "Some app I built"
+#     image: "some-app.png"
+
 - title: "AirAsia Check-In Mobile App"
+  image: ""
   blurb: "Merged health screening and boarding-pass validation into a single mobile flow, so boarding kept moving."
   points:
     - "A Flutter app wired to a temperature scanner and a barcode scanner."
@@ -8,12 +26,14 @@
   link: ""
 
 - title: "CRM built with Laravel"
+  image: ""
   blurb: "A self-taught project: a complete CRM, built end to end on a stack I taught myself."
   points: []
   stack: ["Laravel", "Vue.js", "Inertia.js", "NoSQL"]
   link: "https://github.com/bugscoderlab/crm"
 
 - title: "Chin Hin Group ERP on Odoo"
+  image: ""
   blurb: "An internal ERP for a sales team to track sales and client status."
   points:
     - "Extended Odoo's Python modules to fit Chin Hin's own workflow."
@@ -22,6 +42,7 @@
   link: ""
 
 - title: "Sunway Lagoon Queue Times"
+  image: ""
   blurb: "Live ride wait times and schedules for theme-park visitors."
   points:
     - "Role-based: admins add rides, supervisors push updated wait times."
