@@ -439,54 +439,31 @@ section[id] { scroll-margin-top: 5rem; }
 /* =========================================================================
    Projects
    ========================================================================= */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 1.25rem;
-}
+.projects { border-top: 1px solid var(--line); }
+
 .project {
-  display: flex;
-  flex-direction: column;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-}
-.project:hover {
-  border-color: var(--line-strong);
-  transform: translateY(-2px);
-  box-shadow: 0 16px 32px -24px color-mix(in srgb, var(--ink) 55%, transparent);
-}
-
-.project__media {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  object-position: top center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  align-items: start;
+  padding: 1.9rem 0;
   border-bottom: 1px solid var(--line);
-  background: var(--surface-2);
 }
 
-.project__inner {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: clamp(1.3rem, 2.4vw, 1.6rem);
-}
+.project__body { max-width: 64ch; }
 
 .project__title {
   font-size: 1.12rem;
   font-weight: 600;
   letter-spacing: -0.015em;
-  margin-bottom: 0.55rem;
+  margin-bottom: 0.5rem;
 }
 .project__title a { transition: color 0.2s ease; }
 .project__title a:hover { color: var(--accent); }
 .project__blurb { color: var(--muted); font-size: 0.96rem; }
 
 .project__points {
-  margin-top: 0.8rem;
+  margin-top: 0.7rem;
   display: grid;
   gap: 0.35rem;
 }
@@ -506,7 +483,18 @@ section[id] { scroll-margin-top: 5rem; }
   border-radius: 1px;
   background: var(--line-strong);
 }
-.project__inner .tags { margin-top: auto; padding-top: 1rem; }
+.project__body .tags { margin-top: 0.95rem; }
+
+.project__media {
+  width: 280px;
+  max-width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
 
 /* =========================================================================
    Skills
@@ -630,6 +618,8 @@ section[id] { scroll-margin-top: 5rem; }
   .role { grid-template-columns: 1fr; gap: 0.35rem; }
   .role__period { padding-top: 0; }
   .skills__group { grid-template-columns: 1fr; gap: 0.65rem; }
+  .project { grid-template-columns: 1fr; }
+  .project__media { width: 100%; }
 }
 
 @media (max-width: 540px) {
