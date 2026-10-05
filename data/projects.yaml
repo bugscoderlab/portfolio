@@ -22,6 +22,21 @@
 #   - title: "Another app"
 #     images: ["shot-1.png", "shot-2.png", "shot-3.png"]
 
+- title: "Growth OS"
+  images: ["growth_os_01.png", "growth_os_02.png", "growth_os_03.png"]
+  blurb: "An AI analytics and growth layer for a 14-branch pet services business — forecasting, at-risk customers, and AI-drafted marketing."
+  points:
+    - "Overview with a revenue forecast, predicted 30-day returns, and an AI summary."
+    - "Flags at-risk and lapsed customers with live, ranked AI opportunities."
+    - "Generates quarterly strategy and a 90-day content calendar from the data."
+
+- title: "ServiPOS"
+  image: "pos_system.png"
+  blurb: "A multi-branch point-of-sale and operations app for a pet grooming and boarding business."
+  points:
+    - "Daily grooming queue and service progress, plus boarding and cages."
+    - "Customers, pets, vouchers, reports and an activity log, per branch."
+
 - title: "AirAsia Check-In Mobile App"
   image: ""
   blurb: "Merged health screening and boarding-pass validation into a single mobile flow, so boarding kept moving."
