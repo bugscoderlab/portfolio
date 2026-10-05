@@ -60,6 +60,68 @@ Notes:
   best if they're roughly widescreen. Use `png`, `jpg` or `webp`.
 - To remove a project, delete its whole block (starting at `- title:`).
 
+### Several screenshots (a gallery)
+
+Use `images:` instead of `image:`. The first is the thumbnail; clicking it opens a
+lightbox with all of them (arrow keys / ‹ › to move, Esc to close):
+
+```yaml
+- title: "Another app"
+  images: ["shot-1.png", "shot-2.png", "shot-3.png"]
+  blurb: "Three screenshots."
+```
+
+### Changing the projects layout
+
+Set `projectsLayout` in `hugo.toml` `[params]`:
+
+```toml
+projectsLayout = "rows"   # horizontal rows (default) — no cards
+projectsLayout = "grid"   # bordered cards in a responsive grid
+```
+
+Both layouts support single or multiple screenshots. The `rows` layout puts the
+thumbnail to the right of each project; `grid` puts it on top of each card.
+
+---
+
+## Running it locally (before you push)
+
+You need Hugo installed once:
+
+```bash
+brew install hugo
+```
+
+Then, from the project folder:
+
+```bash
+cd ~/Documents/_portfolio
+hugo server
+```
+
+Open **http://localhost:1313/portfolio/**. While `hugo server` is running, any
+time you save a file (a `data/*.yaml`, a template, the CSS) the browser reloads
+by itself — so you can preview everything before committing.
+
+Stop it with **Ctrl-C**.
+
+To check the exact production build instead of the live-reload preview:
+
+```bash
+hugo --gc --minify      # writes the finished site into public/
+```
+
+When you're happy, push and GitHub rebuilds the live site:
+
+```bash
+git add -A
+git commit -m "Update projects"
+git push
+```
+
+> If port 1313 is busy, use `hugo server --port 1314`.
+
 ---
 
 ## Light / dark theme

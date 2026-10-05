@@ -3,17 +3,24 @@
 # Only `title` is required. Everything else is optional; delete any line you don't need.
 #
 #   title   card heading (required)
-#   image   a screenshot filename. Put the file in  static/images/  and write
+#   image   ONE screenshot filename. Put the file in  static/images/  and write
 #           just the filename here, e.g.  image: "my-app.png"
+#   images  SEVERAL screenshots (a gallery). The first is the thumbnail; clicking
+#           opens a lightbox with all of them. Takes precedence over `image`.
 #   blurb   one short sentence
 #   points  bullet list
 #   stack   list of tech tags
 #   link    URL the title links to
 #
-# A card can be just an image + title. Example:
+# Examples:
 #
+#   # one screenshot
 #   - title: "Some app I built"
 #     image: "some-app.png"
+#
+#   # several screenshots
+#   - title: "Another app"
+#     images: ["shot-1.png", "shot-2.png", "shot-3.png"]
 
 - title: "AirAsia Check-In Mobile App"
   image: ""

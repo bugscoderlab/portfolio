@@ -76,3 +76,65 @@
     reveals.forEach(function (el) { el.classList.add("is-visible"); });
   }
 })();
+
+// Screenshot lightbox
+(function () {
+  "use strict";
+
+  var lb = document.querySelector("[data-lightbox]");
+  if (!lb) return;
+
+  var imgEl = lb.querySelector("[data-lightbox-img]");
+  var capEl = lb.querySelector("[data-lightbox-caption]");
+  var list = [];
+  var idx = 0;
+  var lastFocus = null;
+
+  function render() {
+    if (!list.length) return;
+    imgEl.src = list[idx];
+    imgEl.alt = "Screenshot " + (idx + 1) + " of " + list.length;
+    capEl.textContent = list.length > 1 ? (idx + 1) + " / " + list.length : "";
+  }
+
+  function open(items) {
+    list = items;
+    idx = 0;
+    lastFocus = document.activeElement;
+    lb.hidden = false;
+    document.body.classList.add("no-scroll");
+    render();
+    lb.querySelector("[data-lightbox-close]").focus();
+  }
+
+  function close() {
+    lb.hidden = true;
+    document.body.classList.remove("no-scroll");
+    imgEl.removeAttribute("src");
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  function step(delta) {
+    if (list.length < 2) return;
+    idx = (idx + delta + list.length) % list.length;
+    render();
+  }
+
+  document.querySelectorAll("[data-gallery]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var items = (btn.getAttribute("data-gallery") || "").split(",").filter(Boolean);
+      if (items.length) open(items);
+    });
+  });
+
+  lb.querySelector("[data-lightbox-close]").addEventListener("click", close);
+  lb.querySelector("[data-lightbox-prev]").addEventListener("click", function () { step(-1); });
+  lb.querySelector("[data-lightbox-next]").addEventListener("click", function () { step(1); });
+  lb.addEventListener("click", function (e) { if (e.target === lb) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (lb.hidden) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowLeft") step(-1);
+    else if (e.key === "ArrowRight") step(1);
+  });
+})();

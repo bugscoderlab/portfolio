@@ -10,6 +10,16 @@
   </main>
   {{ partial "footer.html" . }}
 
+  <div class="lightbox" data-lightbox hidden role="dialog" aria-modal="true" aria-label="Screenshot gallery">
+    <button class="lightbox__btn lightbox__close" type="button" data-lightbox-close aria-label="Close gallery">&times;</button>
+    <button class="lightbox__btn lightbox__prev" type="button" data-lightbox-prev aria-label="Previous image">&#8249;</button>
+    <figure class="lightbox__figure">
+      <img class="lightbox__img" data-lightbox-img alt="">
+      <figcaption class="lightbox__caption mono" data-lightbox-caption></figcaption>
+    </figure>
+    <button class="lightbox__btn lightbox__next" type="button" data-lightbox-next aria-label="Next image">&#8250;</button>
+  </div>
+
   {{ $js := resources.Get "js/main.js" | minify | fingerprint "sha384" }}
   <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
 </body>
