@@ -1,0 +1,43 @@
+- role: "AI Academy"
+  company: "Gamuda AI Academy"
+  period: "2025"
+  summary: "An applied AI programme — where I'm heading next."
+  highlights: []
+  stack: []
+
+- role: "Programmer (freelance)"
+  company: "Self-employed"
+  period: "2008 — Present"
+  summary: "Independent software work, mostly server-side."
+  highlights:
+    - "Backend development in PHP and JavaScript."
+    - "Delivered WordPress builds and custom, from-scratch websites."
+  stack: ["PHP", "JavaScript", "WordPress"]
+
+- role: "Algorithmic Trader Developer"
+  company: "Minnos Inc. Sdn Bhd"
+  period: "2019"
+  summary: "Built and tuned automated trading robots."
+  highlights:
+    - "Developed algorithm-based trading robots and analysed their trades to sharpen the criteria."
+    - "Worked around MetaTrader's platform limits to meet the trading requirements."
+  stack: ["MetaTrader", "Algorithms"]
+
+- role: "Web Application Programmer"
+  company: "Ogilvy Malaysia"
+  period: "2007 — 2008"
+  summary: "Full-stack delivery for Maxis digital campaigns."
+  highlights:
+    - "Built yearly campaign microsites end to end."
+    - "Maintained and updated the Maxis website."
+  stack: ["PHP", "JavaScript"]
+
+- role: "Application Specialist"
+  company: "Prudential Services Asia"
+  period: "2006 — 2007"
+  summary: "Led a reporting migration and automated the reporting team's workload."
+  highlights:
+    - "Led the Business Objects application migration with no disruption to daily reporting."
+    - "Shortened report turnaround by reworking the ETL SQL logic."
+    - "Built automation to speed up report deliverables."
+  stack: ["Business Objects", "ETL", "SQL"]

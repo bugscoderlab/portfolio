@@ -1,0 +1,20 @@
+baseURL = "https://bugscoderlab.github.io/portfolio/"
+locale = "en"
+title = "Lee Chee Tat — Backend Developer"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  name        = "Lee Chee Tat"
+  handle      = "bugscoder"
+  role        = "Backend Developer"
+  location    = "Malaysia"
+  description = "Lee Chee Tat (bugscoder) — backend developer working in PHP, Laravel, Python and FastAPI, with a sideline in algorithmic trading."
+  lede        = "Backend developer building server-side systems in PHP, Laravel and Python — with algorithmic trading on the side."
+  summary     = "I lean heavily backend: roughly 90% server-side and 10% front-end, mostly PHP, Laravel and Python. I care about the unglamorous parts of software — the data model, the migration that has to run without downtime, the report that has to be ready by morning. Along the way I've built a CRM from scratch, extended an ERP, shipped an airline mobile flow, and written trading robots. The next thing I'm working toward is AI engineering."
+  quote       = "Nothing is particularly hard if you divide it into small jobs."
+  quoteAuthor = "Henry Ford"
+  email       = "leecheetat@gmail.com"
+  github      = "https://github.com/bugscoderlab"
+  linkedin    = "https://www.linkedin.com/in/bugscoder/"
+  medium      = "https://bugscoder.medium.com"

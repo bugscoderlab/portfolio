@@ -1,0 +1,6 @@
+- group: "Backend"
+  items: ["PHP", "Laravel", "Python", "FastAPI", "MySQL", "PostgreSQL"]
+- group: "Front-end"
+  items: ["JavaScript", "Vue.js", "Inertia.js", "HTML & CSS"]
+- group: "Around the edges"
+  items: ["Odoo", "Flutter", "Google Cloud", "Git", "WordPress"]

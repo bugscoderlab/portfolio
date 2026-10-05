@@ -1,0 +1,151 @@
+{{ define "main" }}
+
+{{/* ======================= HERO ======================= */}}
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__intro">
+      <p class="eyebrow">{{ site.Params.role }} · {{ site.Params.location }}</p>
+      <h1 class="hero__title">{{ site.Params.name }}</h1>
+      <p class="hero__lede">{{ site.Params.lede }}</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="mailto:{{ site.Params.email }}">Email me</a>
+        <a class="btn btn--ghost" href="{{ site.Params.github }}" rel="me noopener" target="_blank">
+          {{ partial "icon.html" "github" }} GitHub
+        </a>
+      </div>
+    </div>
+
+    <aside class="hero__panel" aria-label="At a glance">
+      <dl class="facts">
+        {{ range hugo.Data.facts }}
+        <div class="facts__row">
+          <dt class="facts__label">{{ .label }}</dt>
+          <dd class="facts__value">{{ .value }}</dd>
+        </div>
+        {{ end }}
+      </dl>
+    </aside>
+  </div>
+</section>
+
+{{/* ======================= ABOUT ======================= */}}
+<section id="about" class="section reveal">
+  <div class="wrap">
+    <h2 class="section__title">About</h2>
+    <div class="about">
+      <p class="about__body">{{ site.Params.summary }}</p>
+      <blockquote class="quote">
+        <p>{{ site.Params.quote }}</p>
+        <cite>— {{ site.Params.quoteAuthor }}</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+{{/* ======================= EXPERIENCE ======================= */}}
+<section id="work" class="section reveal">
+  <div class="wrap">
+    <h2 class="section__title">Experience</h2>
+    <ol class="timeline">
+      {{ range hugo.Data.experience }}
+      <li class="role">
+        <div class="role__period mono">{{ .period }}</div>
+        <div class="role__body">
+          <h3 class="role__title">{{ .role }}{{ with .company }} · <span class="role__company">{{ . }}</span>{{ end }}</h3>
+          {{ with .summary }}<p class="role__summary">{{ . }}</p>{{ end }}
+          {{ with .highlights }}
+          <ul class="role__points">
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+          {{ with .stack }}
+          <ul class="tags">
+            {{ range . }}<li class="tag mono">{{ . }}</li>{{ end }}
+          </ul>
+          {{ end }}
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+
+    <h3 class="subhead">Education</h3>
+    <ol class="timeline">
+      {{ range hugo.Data.education }}
+      <li class="role">
+        <div class="role__period mono">{{ .period }}</div>
+        <div class="role__body">
+          <h3 class="role__title">{{ .degree }}, {{ .field }}</h3>
+          <p class="role__summary">{{ .school }}</p>
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+</section>
+
+{{/* ======================= PROJECTS ======================= */}}
+<section id="projects" class="section reveal">
+  <div class="wrap">
+    <h2 class="section__title">Selected projects</h2>
+    <div class="projects">
+      {{ range hugo.Data.projects }}
+      <article class="project">
+        <h3 class="project__title">
+          {{ if .link }}<a href="{{ .link }}" rel="noopener" target="_blank">{{ .title }} <span aria-hidden="true">↗</span></a>
+          {{ else }}{{ .title }}{{ end }}
+        </h3>
+        <p class="project__blurb">{{ .blurb }}</p>
+        {{ with .points }}
+        <ul class="project__points">
+          {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ end }}
+        {{ with .stack }}
+        <ul class="tags">
+          {{ range . }}<li class="tag mono">{{ . }}</li>{{ end }}
+        </ul>
+        {{ end }}
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ======================= SKILLS ======================= */}}
+<section id="skills" class="section reveal">
+  <div class="wrap">
+    <h2 class="section__title">Skills</h2>
+    <div class="skills">
+      {{ range hugo.Data.skills }}
+      <div class="skills__group">
+        <h3 class="skills__label mono">{{ .group }}</h3>
+        <ul class="tags tags--lg">
+          {{ range .items }}<li class="tag mono">{{ . }}</li>{{ end }}
+        </ul>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ======================= CONTACT ======================= */}}
+<section id="contact" class="section reveal">
+  <div class="wrap">
+    <div class="contact">
+      <div class="contact__copy">
+        <h2 class="contact__title">Let's talk</h2>
+        <p class="contact__lede">Have a backend problem, an API to build, or a role in mind? My inbox is open.</p>
+      </div>
+      <div class="contact__actions">
+        <a class="btn btn--primary" href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
+        <div class="contact__links">
+          <a href="{{ site.Params.github }}" rel="me noopener" target="_blank">{{ partial "icon.html" "github" }} GitHub</a>
+          <a href="{{ site.Params.linkedin }}" rel="me noopener" target="_blank">LinkedIn</a>
+          <a href="{{ site.Params.medium }}" rel="me noopener" target="_blank">Medium</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

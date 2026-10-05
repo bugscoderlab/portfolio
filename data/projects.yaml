@@ -1,0 +1,30 @@
+- title: "AirAsia Check-In Mobile App"
+  blurb: "Merged health screening and boarding-pass validation into a single mobile flow, so boarding kept moving."
+  points:
+    - "A Flutter app wired to a temperature scanner and a barcode scanner."
+    - "Validated each boarding pass against AirAsia's internal API."
+    - "Ran on Google Cloud, with an admin dashboard for boarding-list reporting."
+  stack: ["Flutter", "Google Cloud", "NoSQL", "Android"]
+  link: ""
+
+- title: "CRM built with Laravel"
+  blurb: "A self-taught project: a complete CRM, built end to end on a stack I taught myself."
+  points: []
+  stack: ["Laravel", "Vue.js", "Inertia.js", "NoSQL"]
+  link: "https://github.com/bugscoderlab/crm"
+
+- title: "Chin Hin Group ERP on Odoo"
+  blurb: "An internal ERP for a sales team to track sales and client status."
+  points:
+    - "Extended Odoo's Python modules to fit Chin Hin's own workflow."
+    - "Delivered in scrum sprints, story by story."
+  stack: ["Python", "Odoo", "Git"]
+  link: ""
+
+- title: "Sunway Lagoon Queue Times"
+  blurb: "Live ride wait times and schedules for theme-park visitors."
+  points:
+    - "Role-based: admins add rides, supervisors push updated wait times."
+    - "Built with PHP, MySQL and the AdminLTE template."
+  stack: ["PHP", "MySQL", "AdminLTE"]
+  link: "https://sunwaylagoon.com/quetime"
